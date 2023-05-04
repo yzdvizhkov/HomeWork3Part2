@@ -363,9 +363,12 @@ print("\nSCENARIO 2:\n")
 cart.products = dataMapper.products(from: responseFromServer.get3Products())
 // Користувач натискає десь на екрані кнопку "Очистити кошик" (Clear)
 cart.clear()
-
 // Користувач натискає кнопку "Оформити замовлення", щоб побачити чек
-screen.printCheck(cart: cart)
+if cart.products.count > 0 {
+    screen.printCheck(cart: cart)
+} else {
+    print("Кошик пустий. Для оформлення замовлення додайте хоча б один товар")
+}
 
 
 // Кінець коду сценарію для Пункт 2
